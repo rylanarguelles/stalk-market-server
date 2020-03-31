@@ -1,0 +1,18 @@
+{
+    "name": "stalk-market-server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "dependencies": {
+        "nodemon": "^2.0.2",
+        "prettier": "^2.0.2",
+        "typeorm": "^0.2.24"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "start": "nodemon server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC"
+}
