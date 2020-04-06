@@ -1,5 +1,6 @@
 const Koa = require('koa');
 const Router = require('koa-router');
+const cors = require('@koa/cors');
 const bodyParser = require('koa-body');
 const { Pool } = require('pg');
 const { config } = require('./config');
@@ -23,6 +24,7 @@ router.get('', async ctx => {
 console.log('Loading environmental variables...');
 
 app.use(bodyParser());
+app.use(cors());
 app.use(router.routes());
 
 app.listen(8000);
