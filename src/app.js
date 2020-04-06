@@ -21,6 +21,21 @@ router.get('', async ctx => {
     ctx.body = rows;
 });
 
+router.post('/trades/', async ctx => {
+    const {
+        buyPrice,
+        buyDate,
+        sellPrice,
+        sellDate,
+        sellPeriod,
+    } = ctx.request.body;
+    const newTrade = await pool.query(
+        `INSERT INTO trades (buy_price, buy_date, sell_price, sell_date, sell_period) 
+        VALUES (${buyPrice}, '${buyDate}', ${sellPrice}, '${sellDate}', '${sellPeriod}') RETURNING *`,
+    );
+    ctx.body = newTrade.rows;
+});
+
 console.log('Loading environmental variables...');
 
 app.use(bodyParser());
